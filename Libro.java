@@ -12,14 +12,16 @@ public class Libro {
 
     private String autor;
     private String titulo;
-
+    private int numeroPaginas;
+    
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro)
+    public Libro(String autorLibro, String tituloLibro, int numeroPaginasLibro)
     {
         autor = autorLibro;
         titulo = tituloLibro;
+        numeroPaginas = numeroPaginasLibro;
     }
     
     public String getAutorLibro() {
@@ -36,5 +38,9 @@ public class Libro {
     
     public void imprimeTitulo() {
         System.out.println(" El título del libro es: " + titulo);
+    }
+    
+    public int getNumeroPaginasLibro() {
+        return numeroPaginas;
     }
 }
