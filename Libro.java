@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -21,6 +22,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
+        numeroReferencia = "";
     }
     
     public String getAutorLibro() {
@@ -44,11 +46,38 @@ public class Libro {
     }
     
     public void imprimirDetalles() {
-        System.out.println(" Título: " + titulo + "," + " Autor: " + autor + "," + " Páginas " + numeroPaginas + ".");
+        System.out.println(" Título: " + titulo + "," + " Autor: " + autor + "," + " Páginas " + numeroPaginas);
+        if (numeroReferencia == "") {
+            System.out.println(" Numero de referencia: ZZZ " + ".");
+        }
+        else {
+            System.out.println(" Numero de referencia: " + numeroReferencia + ".");
+        }
     }
     
     public String getDetalles() {
-        String detalles = " Título: " + titulo + "," + " Autor: " + autor + "," + " Páginas " + numeroPaginas + ".";
+        String detalles = " Título: " + titulo + "," + 
+                " Autor: " + autor + "," + " Páginas " 
+                + numeroPaginas + ",";
+        if (numeroReferencia == "") {
+            detalles = detalles + " Numero de referencia: ZZZ " + ".";
+        }
+        else {
+            detalles = detalles + " Numero de referencia: " + numeroReferencia + ".";
+        }
         return detalles;
+    }
+    
+    public String getNumeroReferencia() {
+        return numeroReferencia;
+    }
+    
+    public void setNumeroReferencia(String numeroReferenciaLibro) {
+        if (numeroReferenciaLibro.length() < 3) {
+            System.out.println("La longitud del numero de referencia es demasiado corta");
+        }
+        else {
+            numeroReferencia = numeroReferenciaLibro;
+        }
     }
 }
