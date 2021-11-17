@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -23,6 +24,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getAutorLibro() {
@@ -46,7 +48,10 @@ public class Libro {
     }
     
     public void imprimirDetalles() {
-        System.out.println(" Título: " + titulo + "," + " Autor: " + autor + "," + " Páginas " + numeroPaginas);
+        System.out.println(" Título: " + titulo + "," 
+            + " Autor: " + autor + "," + " Páginas: " 
+            + numeroPaginas +", " + " Este libro se ha prestado: "
+            + vecesPrestado + " veces. ");
         if (numeroReferencia == "") {
             System.out.println(" Numero de referencia: ZZZ " + ".");
         }
@@ -58,7 +63,8 @@ public class Libro {
     public String getDetalles() {
         String detalles = " Título: " + titulo + "," + 
                 " Autor: " + autor + "," + " Páginas " 
-                + numeroPaginas + ",";
+                + numeroPaginas + "," + " Este libro se ha prestado: "
+                + vecesPrestado + " veces. ";
         if (numeroReferencia == "") {
             detalles = detalles + " Numero de referencia: ZZZ " + ".";
         }
@@ -79,5 +85,13 @@ public class Libro {
         else {
             numeroReferencia = numeroReferenciaLibro;
         }
+    }
+    
+    public void prestar(){
+        vecesPrestado = vecesPrestado + 1;
+    }
+    
+    public int getVecesPrestado(){
+        return vecesPrestado;
     }
 }
